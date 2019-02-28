@@ -15,7 +15,6 @@ public class BookingTest {
         booking = new Booking("24-12-2020");
     }
 
-
     @Test
     public void canGetDate(){
         assertEquals("24-12-2020", booking.getDate());
