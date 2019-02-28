@@ -1,6 +1,11 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -20,11 +25,16 @@ public class Course {
     @Column(name = "star_rating")
     int starRating;
 
+    @JsonIgnoreProperties("course")
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    private List<Booking> bookings;
+
 
     public Course(String name, String town, int starRating) {
         this.name = name;
         this.town = town;
         this.starRating = starRating;
+        this.bookings = new ArrayList<>();
     }
 
     public Course(){
@@ -62,4 +72,13 @@ public class Course {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
 }
