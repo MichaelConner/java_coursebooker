@@ -22,7 +22,7 @@ public class Booking {
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    
+
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
