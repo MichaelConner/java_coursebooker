@@ -3,10 +3,17 @@ package com.example.coursebooker.components;
 import com.example.coursebooker.models.Booking;
 import com.example.coursebooker.models.Course;
 import com.example.coursebooker.models.Customer;
+import com.example.coursebooker.repositories.bookingRepositories.BookingRepository;
+import com.example.coursebooker.repositories.courseRepositories.CourseRepository;
+import com.example.coursebooker.repositories.customerRepositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
-public class DataLoader {
+
+@Component
+public class DataLoader implements ApplicationRunner {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -17,7 +24,10 @@ public class DataLoader {
     @Autowired
     CourseRepository courseRepository;
 
-    @Override
+    public DataLoader(){
+
+    }
+
     public void run(ApplicationArguments args) throws Exception {
 
         Customer raul = new Customer("Raul","Edinburgh", 21);
@@ -25,6 +35,7 @@ public class DataLoader {
 
         Customer michael = new Customer("Michael","Niddrie", 32);
         customerRepository.save(michael);
+
 
 
         Course java = new Course("Intro to Java", "Edinburgh", 5);
@@ -38,7 +49,7 @@ public class DataLoader {
         Booking booking1 = new Booking("24-12-2020", java, raul);
         bookingRepository.save(booking1);
 
-        Booking booking2 = new Booking("24-12-2020", python, michael);
+        Booking booking2 = new Booking("25-12-2020", python, michael);
         bookingRepository.save(booking2);
 
     }
