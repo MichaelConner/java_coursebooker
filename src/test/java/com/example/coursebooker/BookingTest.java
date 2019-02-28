@@ -1,8 +1,8 @@
 package com.example.coursebooker;
 
-import models.Booking;
-import models.Course;
-import models.Customer;
+import com.example.coursebooker.models.Booking;
+import com.example.coursebooker.models.Course;
+import com.example.coursebooker.models.Customer;
 import org.junit.Before;
 import org.junit.Test;
 

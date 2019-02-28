@@ -1,4 +1,4 @@
-package models;
+package com.example.coursebooker.models;
 
 
 import javax.persistence.*;

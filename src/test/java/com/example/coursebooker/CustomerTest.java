@@ -1,6 +1,6 @@
 package com.example.coursebooker;
 
-import models.Customer;
+import com.example.coursebooker.models.Customer;
 import org.junit.Before;
 import org.junit.Test;
 
